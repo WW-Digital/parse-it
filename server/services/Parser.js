@@ -1,4 +1,4 @@
-const Identifier = require('../models/Identifier');
+const {MealTimes, Dates} = require('../models/Identifier');
 const StopWord = require('../models/StopWord');
 
 class Parser {

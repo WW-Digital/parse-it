@@ -48,5 +48,4 @@ const Dates = [
     },
 ];
 
-module.exports.MealTimes = MealTimes;
-module.exports.Dates = Dates;
+module.exports = {MealTimes, Dates};
