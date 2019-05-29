@@ -1,4 +1,4 @@
-const stopWordList =
+{const stopWordList =
 [
     "a",
     "about",

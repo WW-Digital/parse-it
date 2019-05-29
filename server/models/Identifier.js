@@ -4,7 +4,7 @@ const MealTimes = [
     {
         value: "morning",
         names: [
-            "morning", "breakfast"
+            "morning", "breakfast", "brunch"
         ]
     },
     {
@@ -31,7 +31,7 @@ const Dates = [
     {
         value: moment(),
         names: [
-            "today"
+            "today", "now", "currently"
         ]
     },
     {
