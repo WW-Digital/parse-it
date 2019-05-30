@@ -2,7 +2,6 @@ const moment = require('moment');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
-
 const identifier = require('./models/Identifier.js');
 const stopWord = require('./models/StopWord.js');
 
@@ -125,10 +124,23 @@ const whichType = (word) => {
     } else if (isDate(word)) {
         return 'date';
     } else if (isMealTime(word)) {
-        // return whichMeal(word);
         return 'meal time';
     } else {
         return 'unknown';
+    }
+}
+
+// Checking the value of "word"
+const whichValue = (word) => {
+    word = word.toLowerCase();
+    if (stopWord.isStopWord(word)) {
+        return word;
+    } else if (isDate(word)) {
+        return whichDay(word);
+    } else if (isMealTime(word)) {
+        return whichMeal(word);
+    } else {
+        return word;
     }
 }
 
@@ -156,20 +168,7 @@ const whichMeal = (word) => {
     }
 }
 
-// Checking the value of "word"
-const whichValue = (word) => {
-    word = word.toLowerCase();
-    if (stopWord.isStopWord(word)) {
-        return word;
-    } else if (isDate(word)) {
-        return whichDay(word);
-    } else if (isMealTime(word)) {
-        return whichMeal(word);
-    } else {
-        return word;
-    }
-}
-
+// Checking whether it is a valid day
 const isDate = (word) => {
     for (let i = 0; i < identifier.Dates.length; i++) {
         if (identifier.Dates[i].names.includes(word)) {
@@ -179,6 +178,7 @@ const isDate = (word) => {
     return false;
 }
 
+// Checking whether it is a meal time
 const isMealTime = (word) => {
     for (let i = 0; i < identifier.MealTimes.length; i++) {
         if (identifier.MealTimes[i].names.includes(word)) {
