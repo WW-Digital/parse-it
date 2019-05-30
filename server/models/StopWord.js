@@ -1,4 +1,4 @@
-{const stopWordList =
+const stopWordList =
 [
     "a",
     "about",
@@ -152,7 +152,12 @@
 ];
 
 const isStopWord = (word) => {
-    //TODO Fill this in
+    for (let i = 0; i < stopWordList.length; i++) {
+        if (stopWordList[i] === word) {
+            return true;
+        }
+    }
     return false;
 };
 
+module.exports = {stopWordList, isStopWord}
