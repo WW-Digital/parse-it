@@ -44,6 +44,11 @@ The response should be formatted as follows:
     }
 ]`
 
+### Notes
+1. if matchWord exists in StopWord.js, simply set type: "stop word" and value: `${matchWord}`
+2. if matchWord exists in mealtime.names in Identifier.js, set type: "meal time" and value: matchWord
+3. if matchWord exists in dates.names in Indentifier.js, set type: "dates" and value: moment() with respect of matchWord
+4. if matchWord does not exist in any, set type to "unknown" and value: `${matchWord}`
  
  #### Endpoints required
  
