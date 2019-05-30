@@ -1,5 +1,5 @@
-{const stopWordList =
-[
+{
+  const stopWordList = [
     "a",
     "about",
     "above",
@@ -149,10 +149,22 @@
     "yours",
     "yourself",
     "yourselves"
-];
+  ];
 
-const isStopWord = (word) => {
+  const isStopWord = word => {
     //TODO Fill this in
+    if (stopWordList.includes(word.toLowerCase())) {
+      return true;
+    }
     return false;
-};
+  };
 
+  const getStopWord = word => {
+    for (var i = 0; i < stopWordList.length; i++) {
+      if (stopWordList[i] == word.toLowerCase()) {
+        return stopWordList[i];
+      }
+    }
+  };
+  module.exports = { stopWordList, isStopWord, getStopWord };
+}
