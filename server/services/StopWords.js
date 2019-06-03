@@ -47,7 +47,7 @@ module.exports = class StopWordHelper {
         } else {
             const query = {
                 start: size * (pageNum - 1),
-                end: size * pageNum,
+                end: size * pageNum < stopWordList.length ? size * pageNum : stopWordList.length,
             };
             const response = [];
             for (let i = query.start; i < query.end; i++) {
