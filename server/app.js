@@ -1,27 +1,14 @@
 const express = require('express');
-
 const app = express();
 
-//TODO: Add an express router
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-app.get('/', function (req, res) {
-    res.send('Parse It!');
-});
+app.use(require('./controllers/index.js'));
 
-//TODO Fulfill endpoint to list Identifiers & Stop Words
-app.get('/mealtimes', function (req, res) {
-    res.json({todo: 'List mealtimes'});
-});
-app.get('/dates', function (req, res) {
-    res.json({todo: 'List dates'});
-});
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+})
 
-//TODO Parse the query!
-app.post('/parse', function (req, res) {
-    const query = req.param('query');
-    res.json({todo: `Parse the query string: ${query}`});
-});
 
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
-});

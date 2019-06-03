@@ -153,6 +153,9 @@ const stopWordList =
 
 const isStopWord = (word) => {
     //TODO Fill this in
-    return false;
+    return stopWordList.indexOf(word) != -1;
 };
+
+module.exports = {stopWordList, isStopWord};
+
 
