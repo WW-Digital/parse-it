@@ -1,19 +1,22 @@
 {
-  "name": "parse-it",
-  "version": "1.0.0",
-  "description": "A natural language string parser",
-  "main": "server/app.js",
-  "scripts": {
-    "start": "node server/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "engines": {
-    "node": "8.12.0"
-  },
-  "author": "WW, Int'l",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.4",
-    "moment": "^2.22.2"
-  }
+	"name": "parse-it",
+	"version": "1.0.0",
+	"description": "A natural language string parser",
+	"main": "server/app.js",
+	"scripts": {
+		"start": "node server/app.js",
+		"test": "jest"
+	},
+	"engines": {
+		"node": "8.12.0"
+	},
+	"author": "WW, Int'l",
+	"license": "ISC",
+	"dependencies": {
+		"axios": "^0.19.0",
+		"express": "^4.16.4",
+		"jest": "^24.8.0",
+		"moment": "^2.22.2",
+		"nodemon": "^1.19.1"
+	}
 }
