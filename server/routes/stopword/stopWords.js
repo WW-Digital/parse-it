@@ -7,8 +7,9 @@ const StopWordHelper = new StopWordClass();
 
 router.get('/stopwords', (req, res) => {
     try {
-        const { query } = req.query;
-        res.send(StopWordHelper.outputJSON(query));
+        const { query, pageNum, size } = req.query;
+        console.log(pageNum, size);
+        res.send(StopWordHelper.outputJSON(query, pageNum, size));
     } catch (err) {
         res.status(status.INTERNAL_SERVER_ERROR).send(err);
     }
