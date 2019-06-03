@@ -42,7 +42,10 @@ module.exports = class StopWordHelper {
 
     pagingResult(pageNum, size) {
         if (pageNum <= 0) {
-            const response = {"error" : true, "message" : "invalid page number, should start with 1"};
+            const response = {
+                "error" : true, 
+                "message" : "invalid page number, should start with 1"
+            };
             return response;
         } else {
             const query = {
@@ -50,12 +53,18 @@ module.exports = class StopWordHelper {
                 end: size * pageNum < stopWordList.length ? size * pageNum : stopWordList.length,
             };
             const response = [];
+            const data = [];
             for (let i = query.start; i < query.end; i++) {
+                data.push(stopWordList[i]);
+            }
+            if (data.length == 0) {
+                response.push('Invalid pageNumber...');
+            } else {
+                const remain = Math.ceil(stopWordList.length / size) - pageNum;
                 response.push({
-                    data: [{
-                        value: stopWordList[i],
-                    }]
-                })
+                    'data': data,
+                    'Remain pages: ': remain,
+                });
             }
             return response;
         }
