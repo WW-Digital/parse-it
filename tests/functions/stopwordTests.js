@@ -16,7 +16,14 @@ const functions = {
 		axios
 			.get('http://localhost:3000/StopWords/stopword?query=abcdef')
 			.then(res => res.data)
-			.catch(err => `error in anUnkownWord ${err}`)
+			.catch(err => `error in anUnkownWord ${err}`),
+	getTenItemsPageTwo: (pageNumber, size) =>
+		axios
+			.get(
+				`http://localhost:3000/StopWords/stopword?pageNumber=${pageNumber}&size=${size}`
+			)
+			.then(res => res.data)
+			.catch(err => `error in getTenitems`)
 };
 
 module.exports = functions;

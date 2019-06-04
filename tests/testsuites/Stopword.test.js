@@ -34,3 +34,24 @@ test("should return a failure since the word won't be recognized", () => {
 		});
 	});
 });
+// tests with pageination
+test('Should return 10 items on page starting from page 2 of the stopWord array', () => {
+	return tests.getTenItemsPageTwo(2, 10).then(data => {
+		expect(data).toEqual({
+			status: 'success',
+			data: [
+				'any',
+				'are',
+				'aren',
+				't',
+				'as',
+				'at',
+				'be',
+				'because',
+				'been',
+				'before'
+			],
+			numberOfPages: 15
+		});
+	});
+});
