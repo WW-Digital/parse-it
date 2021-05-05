@@ -5,6 +5,7 @@
   "main": "server/app.js",
   "scripts": {
     "start": "node server/app.js",
+    "dev": "nodemon server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -15,5 +16,8 @@
   "dependencies": {
     "express": "^4.16.4",
     "moment": "^2.22.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
