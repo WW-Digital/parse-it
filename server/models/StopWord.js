@@ -152,12 +152,9 @@ const stopWordList =
     "yourselves"
 ];
 
-const isStopWord = (word) => {
-    if(stopWordList.includes(word)){
-        return true
-    }
-    return false;
-}
+const isStopWord = (word) => (stopWordList.includes(word))
+     
+
 module.exports = stopWordList
 };
 

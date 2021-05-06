@@ -29,19 +29,19 @@ const MealTimes = [
 
 const Dates = [
     {
-        value: moment(),
+        value: moment().format("L"),
         names: [
             "today", "now", "currently"
         ]
     },
     {
-        value: moment().add(-1, 'day').toDate(),
+        value: moment().add(-1, 'day').format("L"),
         names: [
             "yesterday"
         ]
     },
     {
-        value: moment().add(1, 'day').toDate(),
+        value: moment().add(1, 'day').format("L"),
         names: [
             "tomorrow"
         ]
