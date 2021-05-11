@@ -1,9 +1,7 @@
 const mealtimeParser = require('../services/Parser')
 const parseIt = new mealtimeParser()
-const express = require('express');
-const router = express.Router()
 
-router.get('/mealtimes', (req, res) => {
+module.exports = ('/', (req, res) => {
     let value
     try{
         const { name } = req.query
@@ -12,23 +10,14 @@ router.get('/mealtimes', (req, res) => {
     }
     const allMealtimes = parseIt.getAllMealtimes()
     let data = !value ? allMealtimes : value
-    if(data.length < 1){
-        return  res.json({
-            status: 'failure',
-            data
-        })
-    }else{
-        return  res.json({
-            status: 'success',
-            data
-        })
+    if(data.length === 0){
+        return res.json({status: 'failure', data})
     }
-    
-   
+    return res.json({status: 'success', data})
+
     }catch(err){
         console.log(err)
     }
 })
 
 
-module.exports = router

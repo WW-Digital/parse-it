@@ -88,6 +88,7 @@ const stopWordList =
     "of",
     "off",
     "on",
+    "on",
     "once",
     "only",
     "or",

@@ -1,19 +1,30 @@
 const {MealTimes} = require('../models/Identifier')
 
 class MealtimeDAO {
+    getAllMealtimes = () => MealTimes
 
+    getMealtime = (type) => {
+        //RETURN SINGLE VALUE
+    //     const formattedType = type.toLowerCase();
+    //     for(const mealTime of MealTimes){
+    //         if(mealTime.names.includes(formattedType)){
+    //             return  [{value: mealTime.value, type: "mealtime"}]
+    //         }
+    //     }
+    //     return []
+    // }
 
-getAllMealtimes = () => MealTimes
-
-getMealtime = (type) => {
-    let mealtimeFound
-    MealTimes.forEach(ele => {
-        if(ele.names.includes(type.toLowerCase())){
-              mealtimeFound = ele.value
-        }
+    //RETURN MULTIPLE VALUES
+    const formatMealTime = mealTime => { return {value: mealTime.value, type: "mealtime"}}
+    const matchingMealTimes = MealTimes.filter(mealTime => {
+    const formattedType = type.toLowerCase();
+    return mealTime.names.includes(formattedType);
     })
-    return mealtimeFound ? [{value: mealtimeFound, type: "mealtime"}] : []
-}
+    if (!matchingMealTimes) {
+        return []
+    }
+    return matchingMealTimes.map(formatMealTime);
+    }
 }
 
 module.exports = MealtimeDAO

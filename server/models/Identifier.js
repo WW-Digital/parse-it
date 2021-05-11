@@ -22,7 +22,7 @@ const MealTimes = [
     {
         value: "anytime",
         names: [
-            "anytime", "snack"
+            "anytime", "snack", "breakfast"
         ]
     }
 ];
@@ -43,7 +43,7 @@ const Dates = [
     {
         value: moment().add(1, 'day').format("L"),
         names: [
-            "tomorrow"
+            "tomorrow", "currently"
         ]
     },
 ];

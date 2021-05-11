@@ -1,8 +1,6 @@
-const DatesDAO = require('../DAO/DatesDAO')
-const MealtimeDAO = require('../DAO/MealtimeDAO')
-const StopwordDAO = require('../DAO/StopwordDAO')
-    
-
+const DatesDAO = require('../dao/DatesDAO')
+const MealtimeDAO = require('../dao/MealtimeDAO')
+const StopwordDAO = require('../dao/StopwordDAO')
 
 class Parser {
     //TODO Parse through and identify all StopWords & Identifiers
@@ -21,9 +19,6 @@ class Parser {
     stopworddao = new StopwordDAO()
     getAllStopwords = () => this.stopworddao.getAllStopwords()
     getStopword = (word) => this.stopworddao.getStopword(word)
-
-
- 
 }
 
 module.exports = Parser;
