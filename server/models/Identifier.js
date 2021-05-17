@@ -4,7 +4,7 @@ const MealTimes = [
     {
         value: "morning",
         names: [
-            "morning", "breakfast"
+            "morning", "breakfast", "brunch"
         ]
     },
     {
@@ -22,28 +22,28 @@ const MealTimes = [
     {
         value: "anytime",
         names: [
-            "anytime", "snack"
+            "anytime", "snack", "breakfast"
         ]
     }
 ];
 
 const Dates = [
     {
-        value: moment(),
+        value: moment().format("L"),
         names: [
-            "today"
+            "today", "now", "currently"
         ]
     },
     {
-        value: moment().add(-1, 'day').toDate(),
+        value: moment().add(-1, 'day').format("L"),
         names: [
             "yesterday"
         ]
     },
     {
-        value: moment().add(1, 'day').toDate(),
+        value: moment().add(1, 'day').format("L"),
         names: [
-            "tomorrow"
+            "tomorrow", "currently"
         ]
     },
 ];

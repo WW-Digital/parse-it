@@ -45,3 +45,34 @@ The response should be formatted as follows:
 ]`
 
  
+ #### Endpoints required
+ 
+ 1. GET /mealtimes - return back all mealtimes
+ 2. GET /dates - return back all dates
+ 3. GET /stopwords - return back all stop words 
+ 4. Additionally, for endpoints 1-3, add an optional `query` query parameter that filters 
+ the results and returns back the items `value` and it's given `type`. It's up to you to determine how to perform this filtering.
+ 
+ eg: `/mealtimes?query=breakfast`
+ 
+ response: `{
+    status: "success",
+    data: [
+        {
+            value: "morning",
+            type: "mealtime"
+        }
+    ]
+ }`
+ 
+ 
+ 
+ 5. POST /query - perform a query analysis
+
+#### Requirements: 
+All responses should be in the following format:
+
+`{
+    status: "success" | "failure",
+    data: {} // API data
+}`
