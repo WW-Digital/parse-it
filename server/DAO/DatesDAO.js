@@ -24,6 +24,7 @@ getDate = (name) => {
     if(!matchingDates) {
         return []
     }
+    
     return matchingDates.map(formatDate)
 
     

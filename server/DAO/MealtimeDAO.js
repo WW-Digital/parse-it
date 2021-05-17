@@ -23,6 +23,7 @@ class MealtimeDAO {
     if (!matchingMealTimes) {
         return []
     }
+  
     return matchingMealTimes.map(formatMealTime);
     }
 }

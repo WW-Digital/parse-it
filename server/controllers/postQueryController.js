@@ -18,7 +18,7 @@ module.exports = (req, res) => {
             const dateVal = parseIt.getDate(queryArr[i])
             const mealtimeVal = parseIt.getMealtime(queryArr[i])
             const stopwordVal = parseIt.getStopword(queryArr[i])
-        
+            
             // const result = await Promise.allSettled([dateVal, mealtimeVal, stopwordVal])
             
             if(dateVal.length > 0){
@@ -45,12 +45,12 @@ module.exports = (req, res) => {
                 status: "failure",
                 data
             })
-        }
+        }   
         return res.json({
             status: "success",
             data
-        })
-       
+        })  
+        
     }catch(err) {
         console.log(err)
     } 

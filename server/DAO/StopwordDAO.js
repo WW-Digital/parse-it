@@ -24,6 +24,7 @@ getStopword = (word) => {
     if(!matchingStopwords) {
         return []
     }
+   
     return matchingStopwords.map(formatStopword)
    }
 }
