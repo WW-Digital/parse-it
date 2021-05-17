@@ -1,4 +1,5 @@
-{const stopWordList =
+{
+const stopWordList =
 [
     "a",
     "about",
@@ -87,6 +88,7 @@
     "of",
     "off",
     "on",
+    "on",
     "once",
     "only",
     "or",
@@ -151,8 +153,9 @@
     "yourselves"
 ];
 
-const isStopWord = (word) => {
-    //TODO Fill this in
-    return false;
+const isStopWord = (word) => (stopWordList.includes(word))
+     
+
+module.exports = stopWordList
 };
 
