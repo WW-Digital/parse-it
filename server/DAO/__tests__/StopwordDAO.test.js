@@ -4,14 +4,14 @@ const stopword = new StopwordDAOClass()
 
 
 describe('Data access getAllStopwords function test', () => {
-    it.skip('should return all stopwords array', () => {
+    it('should return all stopwords array', () => {
         const stopwords = stopword.getAllStopwords()
         expect(stopwords).toEqual(stopWordList)
     })
 })
 
 describe('Data access getStopword function test', () => {
-    it.skip('should return all stopwords matching given param ', () => {
+    it('should return all stopwords matching given param ', () => {
         const stopwordsArr = [{value: 'on', type: 'stopword'}, {value: 'on', type: 'stopword'}]
         expect(stopword.getStopword('on')).toEqual(stopwordsArr)
     })

@@ -1,21 +1,25 @@
 const stopwordParser = require('../services/Parser')
-const parseIt = new stopwordParser()
 
-module.exports = ('/', (req, res) => {
-    let wordFound
+module.exports = (req, res) => {
     try{
+        const parseIt = new stopwordParser()
         const { word } = req.query
         if(word) {
-         wordFound  = parseIt.getStopword(word)
+        const wordFound  = parseIt.getStopword(word)
+        let data = wordFound
+        if(data.length === 0){
+            return res.json({status: 'failure', data})
+        }
+        return res.json({status: 'success', data})
         }
         const allStopwords = parseIt.getAllStopwords()
-        let data = !wordFound ? allStopwords : wordFound   
+        let data = allStopwords 
         if(data.length === 0){
             return res.json({status: 'failure', data})
         }
         return res.json({status: 'success', data})
     }catch(err){
-        console.log(err)
+        throw err
     }
-})
+}
 

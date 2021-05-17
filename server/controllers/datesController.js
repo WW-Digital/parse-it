@@ -1,16 +1,19 @@
 const dateParser = require('../services/Parser')
-const parseIt = new dateParser()
 
-module.exports = ('/', (req, res) => {
-    let dateReturned
+module.exports = (req, res) => {
     try{
+       const parseIt = new dateParser()
        const { date } = req.query
        if(date){
-        dateReturned = parseIt.getDate(date)
+        const dateReturned = parseIt.getDate(date)
+        let data = dateReturned
+        if(data.length === 0){
+            return res.json({status: 'failure', data})
+         }
+            return res.json({status: 'success', data})
        }
        const allDates = parseIt.getAllDates()
-       let data = !dateReturned ? allDates : dateReturned
-       
+       let data = allDates
         if(data.length === 0){
            return res.json({status: 'failure', data})
         }
@@ -19,6 +22,6 @@ module.exports = ('/', (req, res) => {
     }catch(err){
         console.log(err)
     }
-})
+}
 
 
